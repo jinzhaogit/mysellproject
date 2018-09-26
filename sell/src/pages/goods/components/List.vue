@@ -1,8 +1,8 @@
 <template>
   <div>
-    <router-link to="/cart" tag="div" class="list border-top border-top" v-for="item in list" :key="item.id">
+    <router-link :to="'/cart/'+item.id" tag="div" class="list border-top border-top" v-for="item in list" :key="item.id">
       <div class="list-left">
-        <img class="list-img" :src="item.imgUrl" alt="">
+        <img class="list-img" v-lazy="item.imgUrl" alt="">
       </div>
       <div class="list-right">
         <h2 class="list-title">{{item.title}}</h2>

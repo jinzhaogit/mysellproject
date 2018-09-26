@@ -14,6 +14,7 @@ import Order from '@/pages/order/Order'
 import Login from '@/pages/user/Login'
 import Register from '@/pages/user/Register'
 import BMap from '@/pages/map/BMap'
+import Water from '@/pages/water/Water'
 
 Vue.use(Router)
 var NotFound={template:`<div>Sorry,您访问的页面被外星人抓走了</div>`}
@@ -47,7 +48,7 @@ export default new Router({
     name: 'Goods',
     component: Goods
   },{
-    path: '/cart',
+    path: '/cart/:id',
     name: 'Cart',
     component: Cart,
     children:[
@@ -71,6 +72,10 @@ export default new Router({
     path: '/bmap',
     name: 'BMap',
     component: BMap
+  },{
+    path: '/water',
+    name: 'Water',
+    component: Water
   },{
     path: '/*',
     name: 'NotFound',

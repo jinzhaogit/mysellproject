@@ -11,7 +11,7 @@
 		<div class="card-con">
 			<div class="card-main" v-for="item in cardList" :key="item.id">
 				<div class="card-img">
-					<img :src="item.imgUrl" >
+					<img v-lazy="item.imgUrl" >
 				</div>
 				<div class="card-item">
 					<p class="cart-title">
@@ -47,7 +47,7 @@
 					console.log(res.data)
 					this.cardList=res.data.cardList
 				}
-				
+
 			}
 		},
 		mounted(){
@@ -109,6 +109,6 @@
 					font-size:.26rem
 					line-height:.45rem
 					padding-top:.1rem
-			
-			
+
+
 </style>

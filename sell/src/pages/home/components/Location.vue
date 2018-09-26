@@ -5,10 +5,10 @@
 				<i class="iconfont">&#xe6d1;</i>
 				定位失败
 			</router-link>
-			<div class="location-item">
+			<router-link to="/water" tag="div" class="location-item">
 				<i class="iconfont">&#xe61d;</i>
 				玩水季
-			</div>
+			</router-link>
 		</div>
 		<router-link to="/goods" tag="div" class="location-bottom border-topbottom">
 			<img class="location-img" src="http://img1.qunarzz.com/piao/fusion/1806/29/30427c0e0658b502.png">

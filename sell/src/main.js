@@ -19,11 +19,8 @@ import 'styles/border.css'
 import 'styles/iconfont.css'
 //引入轮播插件样式
 import 'swiper/dist/css/swiper.css'
-//引入MUIcss样式
-// import 'mui/css/mui.css'
-// import 'mui/css/icons-extra.css'
-//引入MUIJS样式
-// import mui from 'mui/js/index.js'
+//引入懒加载
+import VueLazyload from 'vue-lazyload'
 
 //是否使用测试模式
 Vue.config.productionTip = false
@@ -31,10 +28,9 @@ Vue.config.productionTip = false
 fastClick.attach(document.body)
 //使用轮播插件定义
 Vue.use(VueAwesomeSwiper)
-//注册MUI
-// Vue.use(mui)
-// Vue.prototype.mui=mui
-/* eslint-disable no-new */
+//使用懒加载插件定义
+Vue.use(VueLazyload)
+
 new Vue({
   el: '#app',
   router,

@@ -2,9 +2,9 @@
 	<div>
 		<div class="title">热销推荐</div>
 		<ul>
-			<router-link class="item border-bottom" v-for="item of recommendList" 
+			<router-link class="item border-bottom" v-for="item of recommendList"
 				:key="item.id" :to="'/detail/'+item.id" tag="li">
-				<img class="item-img" :src="item.imgUrl">
+				<img class="item-img" v-lazy="item.imgUrl">
 				<div class="item-info">
 					<p class="item-title">{{item.title}}</p>
 					<p class="item-desc">{{item.desc}}</p>
@@ -58,5 +58,5 @@
 				padding:0.2rem
 				border-radius:.06rem
 				color:#fff
-		
+
 </style>
