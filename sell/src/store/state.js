@@ -8,9 +8,10 @@ try{
 }catch(e){}
 
 export default{
-	city:defaultCity,
-  total:0,
-  costs:[],
-  cartLine:[],
-  loginState:false
+	city:defaultCity, //当前城市
+  total:0, //订单总价
+  costs:[], //商品信息列表
+  cartLine:[], //商品特色列表
+  loginState:false, //登录状态
+  count:1 //商家商品数量
 }

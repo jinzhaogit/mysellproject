@@ -23,5 +23,9 @@ export default{
   //判断登录状态
   updataLoginState(state,loginState){
 	  state.loginState=loginState
+  },
+  // 商家商品数量
+  getCount(state){
+	  state.count++
   }
 }

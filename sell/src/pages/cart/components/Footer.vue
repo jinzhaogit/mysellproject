@@ -6,9 +6,9 @@
     <div class="footer-item border-rightleft" @click="handleClickLike" :class="redColorStyle">
       <span class="iconfont icon-foot">&#xe61d;</span>收藏
     </div>
-    <div class="footer-item">
+    <router-link to="/business" tag="div" class="footer-item">
       <span class="iconfont icon-foot">&#xe736;</span>店铺
-    </div>
+    </router-link>
     <div class="footer-cart" @click="handleClickNumber">加入购物车</div>
     <router-link tag="div" to="/order" class="footer-cart cart-last">立即预定</router-link>
     <!--提示框-->

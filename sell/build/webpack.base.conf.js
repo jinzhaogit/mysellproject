@@ -41,7 +41,6 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
       'styles': resolve('src/assets/style'),//自定义路径
-      'mui': resolve('src/assets/mui'),//自定义路径
       'common': resolve('src/common'),//自定义路径
     }
   },

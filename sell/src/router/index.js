@@ -15,6 +15,7 @@ import Login from '@/pages/user/Login'
 import Register from '@/pages/user/Register'
 import BMap from '@/pages/map/BMap'
 import Water from '@/pages/water/Water'
+import Business from '@/pages/business/Business'
 
 Vue.use(Router)
 var NotFound={template:`<div>Sorry,您访问的页面被外星人抓走了</div>`}
@@ -76,6 +77,10 @@ export default new Router({
     path: '/water',
     name: 'Water',
     component: Water
+  },{
+    path: '/business',
+    name: 'Business',
+    component: Business
   },{
     path: '/*',
     name: 'NotFound',

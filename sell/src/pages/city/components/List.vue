@@ -13,7 +13,7 @@
 			<div class="area">
 				<div class="title border-topbottom">热门城市</div>
 				<div class="button-list">
-					<div class="button-wrapper" v-for="item in hotCities" :key="item.id" 
+					<div class="button-wrapper" v-for="item in hotCities" :key="item.id"
 						@click="handleCityClick(item.name)">
 						<div class="button">{{item.name}}</div>
 					</div>
@@ -22,12 +22,12 @@
 			<!-- 城市列表 -->
 			<div class="area" v-for="(item,key) of cities" :key="key" :ref="key">
 				<div class="title border-topbottom">{{key}}</div>
-				<div class="item-list border-bottom" v-for="innerItem in item" 
+				<div class="item-list border-bottom" v-for="innerItem in item"
 					:key="innerItem.id" @click="handleCityClick(innerItem.name)">
 					<div class="item">{{innerItem.name}}</div>
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 </template>
@@ -42,7 +42,7 @@
 			// 把公共信息city渲染给currentCity变量
 			...mapState({
 				currentCity:'city'
-			})	
+			})
 		},
 		methods:{
 			handleCityClick(city){
@@ -66,7 +66,7 @@
 					//传入的参数element必须是一个dom元素，不能是一个数组，通过ref引用信息
 					const element=this.$refs[this.letter][0]
 					//调用scroll插件api实现监听
-					this.scroll.scrollToElement(element)
+					this.scroll.scrollToElement(element,100)
 				}
 			}
 		}

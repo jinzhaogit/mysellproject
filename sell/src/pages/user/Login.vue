@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <div class="header">
-      <router-link to="/order" tag="div" class="iconfont">&#xe624;</router-link>
+      <router-link to="/cart" tag="div" class="iconfont">&#xe624;</router-link>
       <div class="header-input">登录</div>
       <router-link to="/user/register" tag="div">注册</router-link>
     </div>
