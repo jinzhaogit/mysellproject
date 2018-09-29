@@ -51,8 +51,10 @@ export default new Router({
   },{
     path: '/cart/:id',
     name: 'Cart',
+    meta: {index:3},
     component: Cart,
     children:[
+      {path:'',component:Cost},
       {path:'cost',component:Cost},
       {path:'line',component:CartLine},
       {path:'comment',component:Comment}
@@ -80,6 +82,7 @@ export default new Router({
   },{
     path: '/business',
     name: 'Business',
+    meta: {index:6},
     component: Business
   },{
     path: '/*',

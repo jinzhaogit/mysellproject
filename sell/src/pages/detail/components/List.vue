@@ -22,17 +22,28 @@
 					<li>条件退</li>
 				</ul>
 			</div>
-			<router-link tag="div" to="/user/login" class="item-price">
+			<div class="item-price" @click="handleClickLogin">
 				<span class="item-price-span">￥</span>60
 				<div class="item-price-btn">预定</div>
-			</router-link>
+			</div>
 		</div>
 	</div>
 </template>
 <script>
 	export default{
 		name:"DetailList",
-		props:['list']
+		props:['list'],
+    methods:{
+      handleClickLogin(){
+        //如果没有登录，携带当前路径跳转登录页
+        if(!this.$store.state.loginState){
+          this.$router.push({
+            path:'/user/login',
+            query: {redirect: this.$router.currentRoute.fullPath}
+          })
+        }
+      }
+    }
 	}
 </script>
 <style lang="stylus" scoped>

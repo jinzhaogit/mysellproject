@@ -1,11 +1,13 @@
 <template>
-  <div>
-    <cart-header></cart-header>
-    <cart-banner :sightName="sightName" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs"></cart-banner>
-    <cart-info :title="title" :price="price" :tag="tag" :point="point"></cart-info>
-    <div class="content"></div>
-    <cart-footer :bannerImg="bannerImg" :title="title" :price="price" ></cart-footer>
-  </div>
+  <slide-animation>
+    <div>
+      <cart-header></cart-header>
+      <cart-banner :sightName="sightName" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs"></cart-banner>
+      <cart-info :title="title" :price="price" :tag="tag" :point="point"></cart-info>
+      <div class="content"></div>
+      <cart-footer :bannerImg="bannerImg" :title="title" :price="price" ></cart-footer>
+    </div>
+  </slide-animation>
 </template>
 
 <script>
@@ -14,6 +16,7 @@
     import CartBanner from './components/Banner'
     import CartInfo from './components/BaseInfo'
     import CartFooter from './components/Footer'
+    import SlideAnimation from 'common/slide/SlideAnimation'
     export default {
         name: "Cart",
         data(){
@@ -32,7 +35,8 @@
           CartHeader,
           CartBanner,
           CartInfo,
-          CartFooter
+          CartFooter,
+          SlideAnimation
         },
         methods:{
           getCartList(){

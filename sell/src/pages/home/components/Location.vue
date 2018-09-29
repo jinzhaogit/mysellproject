@@ -10,9 +10,9 @@
 				玩水季
 			</router-link>
 		</div>
-		<router-link to="/goods" tag="div" class="location-bottom border-topbottom">
+		<div class="location-bottom border-topbottom">
 			<img class="location-img" src="http://img1.qunarzz.com/piao/fusion/1806/29/30427c0e0658b502.png">
-		</router-link>
+		</div>
 	</div>
 </template>
 <script>

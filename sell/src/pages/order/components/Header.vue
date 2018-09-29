@@ -1,6 +1,6 @@
 <template>
     <div class="header border-bottom">
-      <router-link to="/cart" tag="span" class="iconfont icon-back">&#xe624;</router-link>
+      <router-link to="/cart/0001" tag="span" class="iconfont icon-back">&#xe624;</router-link>
       购物车({{this.$store.state.total}})
       <div class="header-msg">
         <router-link to="/delorder" tag="span">编辑</router-link>

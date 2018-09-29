@@ -42,12 +42,12 @@
 				}
 			}
 		},
-		// 页面将要重新加载或者切换时
-		activated(){
+		// 页面全部挂载后
+		mounted(){
 			// 添加滚动事件监听，调用监听函数handlescroll
 			window.addEventListener('scroll',this.handleScroll)
 		},
-		// 页面即将要离开或者切换隐藏时
+		// 组件即将销毁时
 		deactivated(){
 			// 对全局滚动事件解绑，避免全局污染
 			window.removeEventListener('scroll',this.handleScroll)
@@ -70,7 +70,7 @@
 			color:#fff
 			font-size:.24rem
 	.header-fixed
-		z-index:3
+		z-index:699
 		position:fixed
 		top:0
 		right:0

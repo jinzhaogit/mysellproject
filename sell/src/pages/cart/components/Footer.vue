@@ -38,7 +38,7 @@
       }
     },
     components:{
-      FadeAnimation
+      FadeAnimation,
     },
     methods:{
       handleClickLike(){

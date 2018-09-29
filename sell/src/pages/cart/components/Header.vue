@@ -68,14 +68,16 @@
             }
           }
         },
-        //当页面即将要重新加载或者切换时
-        activated(){
-          window.addEventListener('scroll',this.handleScroll)
-        },
-        //当页面即将要离开或切换时，对全局事件进行解绑
-        deactivated(){
-          window.removeEventListener('scroll',this.handleScroll)
-        }
+      // 页面将要重新加载或者切换时
+      activated(){
+        // 添加滚动事件监听，调用监听函数handlescroll
+        window.addEventListener('scroll',this.handleScroll)
+      },
+      // 页面即将要离开或者切换隐藏时
+      deactivated(){
+        // 对全局滚动事件解绑，避免全局污染
+        window.removeEventListener('scroll',this.handleScroll)
+      }
     }
 </script>
 

@@ -23,11 +23,11 @@
                   <p class="desc-con-desc">{{item.desc}}</p>
                   <div class="desc-dom">
                     <span class="desc-dom-price">￥{{item.price}}</span>
-                    <span class="desc-dom-add" @click="handleShowAdd(item.id,item.title)">+</span>
+                    <span class="desc-dom-add" @click="handleShowAdd(item.id)">+</span>
                     <!--减号-->
                     <div class="desc-sub" v-show="parseInt(item.number)">
                       <input class="desc-dom-input" type="text" :value="item.number">
-                      <span class="desc-dom-sub" @click="handleShowSub(item.id,item.title)">-</span>
+                      <span class="desc-dom-sub" @click="handleShowSub(item.id)">-</span>
                     </div>
                   </div>
                 </div>
@@ -56,19 +56,24 @@
           <div class="order-list" v-for="item in cartlist">
             <p class="order-list-name">{{item.title}}</p>
             <div class="order-list-cart">
-              <span class="order-list-oprt" @click="handleShowAdd(item.id,item.title)">+</span>
+              <span class="order-list-oprt" @click="handleShowAdd(item.id)">+</span>
               <span class="order-list-num">{{item.number}}</span>
-              <span class="order-list-oprt" @click="handleShowSub(item.id,item.title)">-</span>
+              <span class="order-list-oprt" @click="handleShowSub(item.id)">-</span>
             </div>
           </div>
         </div>
       </div>
+      <!--提示框-->
+      <fade-animation v-show="showTips">
+        <div class="tips">删除订单成功</div>
+      </fade-animation>
     </div>
 
 </template>
 
 <script>
     import BScroll from 'better-scroll'
+    import FadeAnimation from 'common/fade/FadeAnimation'
     export default {
         name: "BusList",
         props:{
@@ -80,8 +85,12 @@
             scrollY:0,
             listHeight:[],
             showOrder:false,
-            cartlist:[]
+            cartlist:[],
+            showTips:false
           }
+        },
+        components:{
+          FadeAnimation
         },
         computed:{
           //实时跟进滚动
@@ -139,42 +148,50 @@
             for(var i=0;i<items.length;i++){
               //把每个标题对应的距离文档高度加入到数组中
               height+=items[i].clientHeight
+              //把点击的商品加入到购物车列表中
               this.listHeight.push(height)
             }
-            alert(this.listHeight)
           },
           // 点击加号显示减号并添加数量
-          handleShowAdd(id,title){
+          handleShowAdd(id){
             //遍历对象得到单个对象属性值
             for(let items in this.busprolist){
               let item=this.busprolist[items]
               // 遍历单个对象得到里面属性
               for(var i=0;i<item.length;i++){
                 // 判断当前id和标题都相等的情况下
-                if(item[i].id==id && item[i].title==title){
+                if(item[i].id==id){
+                  //对应元素数量+1
                   item[i].number++
+                  //把对应元素添加到购物车列表中
                   this.cartlist.push(item[i])
+                  //二次点击的时候会重复添加到数组中
+                  //给数组去重后转化为数组
+                  this.cartlist=Array.from(new Set(this.cartlist))
                 }
               }
             }
           },
           // 点击减号减少数量到0隐藏
-          handleShowSub(id,title){
+          handleShowSub(id){
             //遍历对象得到单个对象属性值
             for(let items in this.busprolist){
               let item=this.busprolist[items]
               // 遍历单个对象得到里面属性
-              for(var i=0;i<item.length;i++){
-                // 判断当前id和标题都相等的情况下
-                if(item[i].id==id && item[i].title==title){
-                  item[i].number--
-                  if(item[i].number<=0){
-                    item[i].number=0
+                  for(var i=0;i<item.length;i++){
+                    // 判断当前id和标题都相等的情况下
+                      if(item[i].id==id) {
+                        item[i].number--
+                        //如果该商品数量减为0后从购物车列表中删除该商品
+                        for(var j=0;j<this.cartlist.length;j++){
+                          if (this.cartlist[j].number == 0){
+                            this.cartlist[j].number = 0;
+                            this.cartlist.splice(j, 1);
+                          }
+                        }
+                      }
                   }
-                  this.cartlist.pop(item[i])
-                }
               }
-            }
           },
           // 显示订单列表
           handleShowOrder(){
@@ -188,6 +205,15 @@
           handleClickRemove(){
             // 从数组的第0个位置删除到最后
             this.cartlist.splice(0,this.cartlist.length)
+            //提示框显示
+            this.showTips=true
+            //提示框消失
+            setTimeout(()=>{
+              this.showTips=false
+              //刷新页面
+              this.$router.go(0)
+            },1500)
+
           }
         },
         mounted(){
@@ -369,4 +395,17 @@
               float: right
               line-height:.44rem
               width:.44rem
+    .tips
+      z-index: 666
+      position: fixed
+      bottom:42%
+      left:50%
+      margin-left:-1.5rem
+      width:3rem
+      height:.8rem
+      line-height:.8rem
+      border-radius:.08rem
+      text-align: center
+      color: #fff
+      background-color:rgba(0,0,0,.5)
 </style>

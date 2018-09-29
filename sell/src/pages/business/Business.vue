@@ -1,14 +1,17 @@
 <template>
+  <slide-animation>
     <div>
       <business-header></business-header>
       <business-list :bustitle="bustitle" :busprolist="busprolist"></business-list>
     </div>
+  </slide-animation>
 </template>
 
 <script>
     import axios from 'axios'
     import BusinessHeader from './components/Header'
     import BusinessList from './components/List'
+    import SlideAnimation from 'common/slide/SlideAnimation'
     export default {
         name: "business",
         data(){
@@ -19,7 +22,8 @@
         },
         components:{
           BusinessHeader,
-          BusinessList
+          BusinessList,
+          SlideAnimation
         },
         methods:{
           getbustitle(){
