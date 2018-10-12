@@ -24,9 +24,9 @@
       <div class="slider"></div>
       <!--费用线路评论-->
       <div class="info-cost border-bottom">
-        <router-link to="/cart/cost">费用信息</router-link>
-        <router-link to="/cart/line">线路特色</router-link>
-        <router-link to="/cart/comment">用户评论</router-link>
+        <router-link to="/cart/0001/cost">费用信息</router-link>
+        <router-link to="/cart/001/line">线路特色</router-link>
+        <router-link to="/cart/0001/comment">用户评论</router-link>
       </div>
       <router-view></router-view>
     </div>

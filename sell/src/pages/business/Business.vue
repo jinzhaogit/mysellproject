@@ -13,7 +13,7 @@
     import BusinessList from './components/List'
     import SlideAnimation from 'common/slide/SlideAnimation'
     export default {
-        name: "business",
+        name: "Business",
         data(){
           return{
             bustitle:[],

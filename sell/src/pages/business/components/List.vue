@@ -151,6 +151,7 @@
               //把点击的商品加入到购物车列表中
               this.listHeight.push(height)
             }
+            alert(this.listHeight)
           },
           // 点击加号显示减号并添加数量
           handleShowAdd(id){
