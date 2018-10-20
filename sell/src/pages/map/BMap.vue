@@ -1,7 +1,7 @@
 <template>
     <div class="myMap">
       <div class="header">
-        <router-link to="/detail/0001" tag="div" class="iconfont">&#xe624;</router-link>
+        <div @click="backFun" class="iconfont">&#xe624;</div>
         <div class="header-input">查看地图</div>
       </div>
       <div id="bmap"></div>
@@ -13,6 +13,12 @@
     import BMap from 'BMap'
     export default {
         name: "BMap",
+        methods:{
+          // 返回上一页
+          backFun(){
+            this.$router.go(-1)
+          }
+        },
         mounted(){
           var map = new BMap.Map("bmap") ;// 创建地图实例
           var point = new BMap.Point(116.402122,39.929583); // 创建点坐标

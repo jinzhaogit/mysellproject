@@ -16,6 +16,7 @@ import Register from '@/pages/user/Register'
 import BMap from '@/pages/map/BMap'
 import Water from '@/pages/water/Water'
 import Business from '@/pages/business/Business'
+import Main from '@/pages/user/Main'
 
 Vue.use(Router)
 var NotFound={template:`<div>Sorry,您访问的页面被外星人抓走了</div>`}
@@ -84,6 +85,10 @@ export default new Router({
     name: 'Business',
     meta: {index:6},
     component: Business
+  },{
+    path: '/main',
+    name: 'Main',
+    component: Main
   },{
     path: '/*',
     name: 'NotFound',

@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <div class="header">
-      <router-link to="/order" tag="div" class="iconfont">&#xe624;</router-link>
+      <div class="iconfont" @click="backFun">&#xe624;</div>
       <div class="header-input">登录</div>
       <router-link to="/user/register" tag="div">注册</router-link>
     </div>
@@ -120,6 +120,10 @@
             this.showLoginBtnStyle={
               activeClass:true
             }
+          },
+          //  返回上一页
+          backFun(){
+            this.$router.go(-1)
           }
         }
     }

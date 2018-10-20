@@ -30,6 +30,17 @@ fastClick.attach(document.body)
 Vue.use(VueAwesomeSwiper)
 //使用懒加载插件定义
 Vue.use(VueLazyload)
+//定义全局路由守卫
+router.beforeEach((to,from,next)=>{
+  var nextRoute=['Main']
+  const isIogin=store.state.loginState;
+  if(nextRoute.indexOf(to.name)>=0){
+    if(!isIogin){
+      router.push('/user/login')
+    }
+  }
+  next()
+})
 
 new Vue({
   el: '#app',
